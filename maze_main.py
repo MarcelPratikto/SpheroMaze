@@ -83,6 +83,7 @@ class Application:
             # Live feed
             if self.live_feed:
                 image = self.camera.get_image_unfiltered()
+                cv2.namedWindow("Live Feed", cv2.WINDOW_NORMAL)
                 cv2.imshow("Live Feed", image)
                 cv2.waitKey(5)
             if self.destroy_feed_window:

@@ -21,7 +21,7 @@ import json
 import os
 
 # Support Macros
-CAMERA_NUMBER = 1  # The camera number indicates which camera is being used; default value is 0.
+CAMERA_NUMBER = 2  # The camera number indicates which camera is being used; default value is 0.
 PARAMETERS_FILE = "parameters.txt"  # Name of the file that stores threshold values
 CORNERS_FILE = "corners.txt"
 CAMERA_SETTINGS_FILE = "camSettings.txt"
@@ -467,6 +467,7 @@ class Maze_Camera():
         # Put instructions on image before showing it
         cv2.putText(corners_img, 'Click on maze corners; press space to skip', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, .8, (255, 0, 255),
                     2)
+        cv2.namedWindow('Add Corners', cv2.WINDOW_NORMAL)
         cv2.imshow('Add Corners', corners_img)  # Show an image for the user to reference
         cv2.setMouseCallback('Add Corners', self.CallBackFunc)  # Allow user to click on corners
         # Get the 4 corners from user input
